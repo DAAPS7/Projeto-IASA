@@ -1,5 +1,5 @@
-from lib.agent.agent import Agent
-from game_perception import GamePerception
+from agent.agent import Agent
+from .game_perception import GamePerception
 
 class GameAgent(Agent):
     """Classe que representa o agente do jogo e herda da classe 'Agent'"""

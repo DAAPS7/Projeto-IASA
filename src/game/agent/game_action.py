@@ -1,4 +1,4 @@
-from lib.agent.action import Action
+from agent.action import Action
 
 class GameAction(Action):
     """Classe que implementa a interface 'Action' e representa a ação do jogo"""

@@ -1,4 +1,4 @@
-from lib.agent.perception import Perception
+from agent.perception import Perception
 
 class GamePerception(Perception):
     """Classe que implementa a interface Perception e representa a perceção do jogo"""

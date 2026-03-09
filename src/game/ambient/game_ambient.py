@@ -1,4 +1,4 @@
-from game_event import GameEvent
+from ambient.game_event import GameEvent
 
 class GameAmbient:
     """Classe que represente o ambiente de jogo"""
