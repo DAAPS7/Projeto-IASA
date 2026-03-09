@@ -1,8 +1,17 @@
 from abc import ABC, abstractmethod
 
 class Control(ABC):
-    """Classe abstrata que representa o controlo de um agente de jogo"""
+    """
+    Classe abstrata que representa o controlo de um agente de jogo
+    """
 
     @abstractmethod
     def process(self, perception):
-        """Retorna a ação do agente baseada na sua perceção"""
+        """
+        Retorna a ação do agente baseada na sua perceção
+
+        Parâmetros
+        ----------
+        perception : Perception
+            Instância da classe Perception
+        """

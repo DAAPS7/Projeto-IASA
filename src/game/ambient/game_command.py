@@ -1,7 +1,9 @@
 from enum import Enum
 
 class GameCommand(Enum):
-    """Enumerado dos comandos de jogo"""
+    """
+    Enumerado dos comandos de jogo
+    """
 
     SEEK = 1
     APPROACH = 2
@@ -9,5 +11,7 @@ class GameCommand(Enum):
     PHOTOGRAPH = 4
 
     def display(self):
-        """Método que mostra ao utilizador qual é a ação atual"""
+        """
+        Método que mostra ao utilizador qual é a ação atual
+        """
         print(f"\nAção: {self.name}")

@@ -2,31 +2,35 @@ from agent.control import Control
 from agent.game_action import GameAction
 from ambient.game_command import GameCommand
 from stamac.state_machine import StateMachine
-from character.character_state import CharacterState
+from .character_state import CharacterState
 from ambient.game_event import GameEvent
 
 class CharacterControl(Control):
-    """Classe que representa o controlo da personagem"""
+    """
+    Classe que representa o controlo da personagem
+
+    Atributos
+    ---------
+    __state_machine : StateMachine
+        Máquina de estados da personagem
+    """
 
     def __init__(self):
         """
-        Construtor da classe do controlo da personagem
+        Construtor da classe do controlo da personagem. Chama o construtur da classe parente a partir do método super()
         
-        Variáveis
-        ---------
+        Instancia a máquina de estados, preenchendo a lista de transições com as regras de transição de estado e ação
+
+        Variáveis Locais
+        ----------------
         seek : GameAction
-
+            Ação de jogo de procura
         approach : GameAction
-
+            Ação de jogo de aproximação
         observe : GameAction
-
+            Ação de jogo de observação
         photograph : GameAction
-
-        Atributos
-        ---------
-        __state_machine : StateMachine
-            Máquina de estados da personagem
-        
+            Ação de jogo de fotografia 
         """
         super().__init__()
 
@@ -57,8 +61,27 @@ class CharacterControl(Control):
 
     @property
     def state(self):
+        """
+        Propriedade pública read-only
+        
+        Retorna
+        -------
+        __state_machine.state : CharacterState
+            Estado atual obtido pela máquina de estados
+        """
         return self.__state_machine.state
     
     def process(self, perception):
-        """Implementação do método abstrato do processamento da perceção do ambiente de jogo"""
-        return self.__state_machine.process(perception.event)
+        """
+        Implementação do método abstrato do processamento da perceção do ambiente de jogo
+
+        Processa a perceção para obter a ação de jogo
+        
+        Retorna
+        -------
+        action : GameAction
+            Ação atual do jogo
+        """
+        action = self.__state_machine.process(perception.event)
+
+        return action

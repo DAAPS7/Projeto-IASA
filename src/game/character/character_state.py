@@ -1,7 +1,9 @@
 from enum import Enum
 
 class CharacterState(Enum):
-    """Enumerado dos estados de personagem"""
+    """
+    Enumerado dos estados da personagem
+    """
 
     SEEK = 1
     INSPECT = 2

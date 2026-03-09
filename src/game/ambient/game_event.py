@@ -1,7 +1,9 @@
 from enum import Enum
 
 class GameEvent(Enum):
-    """Enumerado dos eventos de jogo"""
+    """
+    Enumerado dos eventos de jogo
+    """
 
     SILENCE = 's'
     NOISE = 'n'
@@ -11,5 +13,7 @@ class GameEvent(Enum):
     TERMINATE = 't'
 
     def display(self):
-        """Método que mostra ao utilizador qual é o evento atual"""
+        """
+        Método que mostra ao utilizador qual é o evento atual
+        """
         print(f"\nEvento: {self.name}")
