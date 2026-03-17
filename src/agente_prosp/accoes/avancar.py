@@ -1,7 +1,7 @@
 from ecr.accao import Accao
 from sae.agente.movimento import Movimento
 
-class Advance(Movimento, Accao):
+class Avancar(Movimento, Accao):
 
     def __init__(self):
         """
