@@ -4,6 +4,9 @@ import sae
 class AgenteProsp(Agente):
     """
     Classe que representa um agente prospetor que especializa Agente
+
+    Este é um agente reativo que está fortemente acoplado ao ambiente que vai
+    percecionar e processar para gerar uma reação que define a ação do agente
     """
 
     def _percepcionar(self):

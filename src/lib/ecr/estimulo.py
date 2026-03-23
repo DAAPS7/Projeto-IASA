@@ -3,6 +3,8 @@ from abc import ABC, abstractmethod
 class Estimulo(ABC):
     """
     Interface que representa o estímulo de um agente reativo
+
+    Define o que ativará uma reação do agente
     """
 
     @abstractmethod

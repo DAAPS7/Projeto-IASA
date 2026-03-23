@@ -5,6 +5,10 @@ class ComportamentoComp(Comportamento):
     """
     Classe que representa um comportamento composto
 
+    Comportamento que agrega vários comportamentos individuais e, por isso,
+    necessita de um mecanismo que determine um comportamento individual e,
+    consequentemente, a ação a realizar pelo agente
+
     Atributos
     ---------
     self.__comportamentos : List<Comportamento>
@@ -23,7 +27,7 @@ class ComportamentoComp(Comportamento):
 
         self.__comportamentos = comportamentos
     
-    def activate(self, percepcao):
+    def activar(self, percepcao):
         """
         Percorre os comportamentos individuais, recebe todas as ações e invoca o método de seleção de ação
 

@@ -4,6 +4,8 @@ class Reaccao(Comportamento):
     """
     Classe que representa uma reação de um agente reativo
 
+    Associa estímulos a respostas, ou seja, gera a ação do agente
+
     Atributos
     ---------
     self.__estimulo : Estimulo
