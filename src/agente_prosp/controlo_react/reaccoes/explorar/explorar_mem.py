@@ -63,5 +63,3 @@ class ExplorarMem(Comportamento):
             self.__memoria.append(situacao)
 
             return self.__accao
-        
-        return None

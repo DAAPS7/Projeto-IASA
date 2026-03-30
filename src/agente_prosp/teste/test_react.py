@@ -27,5 +27,5 @@ if __name__ == "__main__":
     Esta colisão é definida ao percecionar o ambiente a partir do módulo Transdutor da biblioteca SAE.
     A deteção da perceção a partir de um estímulo vai definir se existe um obstáculo.
 
-    Para evitar as colisões seria necessário adicionar um comportamento de evitar obstáculos.
+    Para evitar as colisões é necessário adicionar um comportamento de evitar obstáculos.
     """

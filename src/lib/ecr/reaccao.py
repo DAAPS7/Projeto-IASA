@@ -30,7 +30,7 @@ class Reaccao(Comportamento):
     
     def activar(self, percepcao):
         """
-        Método de ativação da reação do agente reativo
+        Método de ativação da reação do agente reativo com a sua respetiva intensidade
 
         Parâmetros
         ----------
@@ -44,10 +44,10 @@ class Reaccao(Comportamento):
         """
 
         accao = None
-        
-        intensidade = self.__estimulo.detectar(percepcao).prioridade
+
+        intensidade = self.__estimulo.detectar(percepcao)
 
         if intensidade > 0:
             accao = self.__resposta.activar(percepcao, intensidade)
-        
+
         return accao
