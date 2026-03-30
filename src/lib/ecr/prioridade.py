@@ -1,4 +1,4 @@
-from comportamento_comp import ComportamentoComp
+from .comportamento_comp import ComportamentoComp
 
 class Prioridade(ComportamentoComp):
     """

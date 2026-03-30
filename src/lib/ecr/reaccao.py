@@ -42,6 +42,9 @@ class Reaccao(Comportamento):
         accao : Accao
             Ação processada pelo agente
         """
+
+        accao = None
+        
         intensidade = self.__estimulo.detectar(percepcao).prioridade
 
         if intensidade > 0:

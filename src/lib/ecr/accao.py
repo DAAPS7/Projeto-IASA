@@ -34,6 +34,6 @@ class Accao(AccaoAgente):
         return self.__prioridade
 
     @prioridade.setter
-    def priority(self, valor):
+    def prioridade(self, valor):
         """Setter"""
         self.__prioridade = valor

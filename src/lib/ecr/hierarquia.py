@@ -1,4 +1,4 @@
-from comportamento_comp import ComportamentoComp
+from .comportamento_comp import ComportamentoComp
 class Hierarquia(ComportamentoComp):
     """
     Comportamento composto responsável pela implementação hierárquica da seleção

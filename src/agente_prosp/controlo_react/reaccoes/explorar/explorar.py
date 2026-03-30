@@ -1,7 +1,7 @@
 from ecr.comportamento import Comportamento
 from agente_prosp.accoes.rodar import Rodar
 from agente_prosp.accoes.avancar import Avancar
-from sae.ambiente.direccao import Direccao
+from sae import Direccao
 from random import random, choice
 
 class Explorar(Comportamento):

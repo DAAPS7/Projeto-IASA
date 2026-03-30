@@ -1,5 +1,5 @@
 from ecr.accao import Accao
-from sae.agente.movimento import Movimento
+from sae import Movimento
 
 class Avancar(Movimento, Accao):
 

@@ -1,9 +1,9 @@
 class Resposta:
 
-    def __init__(self, accao):
+    def __init__(self, accao=None):
         self._accao = accao
 
-    def activate(self, percepcao, intensidade=0):
+    def activar(self, percepcao, intensidade=0):
         """Retorna uma ação"""
         accao = self._obter_accao(percepcao)
         
