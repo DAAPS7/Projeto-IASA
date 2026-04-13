@@ -28,7 +28,7 @@ class AccaoJogo(Accao):
         
         Retorna
         -------
-        __comando : ComandoJogo
+        self.__comando : ComandoJogo
             Atributo privado (self.__comando) que representa um comando de jogo
         """
         return self.__comando
