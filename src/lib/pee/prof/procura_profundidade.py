@@ -8,4 +8,8 @@ class ProcuraProfundidade(MecanismoProcura):
     """
 
     def __init__(self):
+        """
+        Invoca o construtor da super classe passando uma instância
+        da classe de fronteira do tipo LIFO.
+        """
         super().__init__(FronteiraLIFO())
