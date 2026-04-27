@@ -30,10 +30,24 @@ class Accao(AccaoAgente):
 
     @property
     def prioridade(self):
-        """Getter"""
+        """
+        Propriedade pública read-only
+        
+        Retorna
+        -------
+        self.__prioridade : Estado
+            Prioridade da ação
+        """
         return self.__prioridade
 
     @prioridade.setter
     def prioridade(self, valor):
-        """Setter"""
+        """
+        Setter do atributo de prioridade
+
+        Parâmetros
+        ----------
+        valor : int
+            Valor a atribuir à prioridade
+        """
         self.__prioridade = valor
