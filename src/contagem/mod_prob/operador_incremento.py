@@ -44,7 +44,7 @@ class OperadorIncremento(Operador):
         self.__incremento**2 : double
             Custo do operador
         """
-        return self.__incremento**2
+        return self.__incremento ** 2
 
     @property
     def incremento(self):
