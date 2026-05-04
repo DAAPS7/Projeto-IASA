@@ -1,6 +1,7 @@
 from .mecanismo_procura import MecanismoProcura
+from abc import ABC
 
-class ProcuraGrafo(MecanismoProcura):
+class ProcuraGrafo(MecanismoProcura, ABC):
     """
     Classe que especializa MecanismoProcura que implementa sobre essa classe abstrata,
     a capacidade de apenas inserir nós não explorados na fronteira.

@@ -60,7 +60,7 @@ def teste_contagem(valor_inicial, valor_final, incrementos, mecanismos_procura):
         else:
             """Sem heurística, procura a solução ao problema"""
             solucao = mec_proc.procurar(problema)
-        
+
         print()
         print("Mecanismo de Procura: ", mec_proc.__class__.__name__)
         print("Solução: ", [passo.operador.incremento for passo in solucao])
