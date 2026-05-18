@@ -1,10 +1,13 @@
 from mod.operador import Operador
-from accoes.mover import Mover
+from agente_prosp.accoes.mover import Mover
+from .estado_agente import EstadoAgente
+from sae.ambiente.posicao import Posicao
 import math
 
 class OperadorMover(Operador):
     """
     Classe que representa o operador de movimento do agente.
+    Responsável pela simuação das ações de movimento do agente.
     Realiza a classe Operador.
 
     Atributos
@@ -19,7 +22,7 @@ class OperadorMover(Operador):
 
     def __init__(self, modelo_mundo, direccao):
         """
-        Construtor do operador
+        Construtor da classe do operador de movimento do agente.
 
         Parâmetros
         ----------
@@ -47,12 +50,56 @@ class OperadorMover(Operador):
 
     def aplicar(self, estado):
         """
-        Retorna o estado do agente
+        Aplica a ação do movimento do agente.
+
+        Calcula a diferença das posições entre o estado seguinte
+        e o estado atual (dx e dy) e soma-as aos eixos correspondentes
+        da posição atual do agente.
+
+        Verifica se a posição calculada é válida, ou seja, pertence ao
+        modelo mundo a partir do método __contains__ implementado na
+        classe ModeloMundo.
+
+        Retorna um estado com a posição calculada anteriormente.
+
+        Parâmetros
+        ----------
+        estado : EstadoAgente
+            Estado atual do agente
+
+        Retorna
+        -------
+        estado_suc : EstadoAgente
+            Estado seguinte do agente        
         """
+
+        dx = self.__accao.passo * math.cos(self.__ang)
+        dy = -self.__accao.passo * math.sin(self.__ang)
+
+        x = dx + estado.posicao[0]
+        y = dy + estado.posicao[1]
+
+        estado_suc = EstadoAgente(Posicao((x, y)))
+
+        if estado_suc in self.__modelo_mundo:
+            return estado_suc
+
 
     def custo(self, estado, estado_suc):
         """
         Retorna o custo do operador com o valor mínimo de 1.
+
+        Parâmetros
+        ----------
+        estado : EstadoAgente
+            Estado atual do agente
+        estado_suc : EstadoAgente
+            Estado sucessor do agente
+        
+        Retorna
+        -------
+        : double
+            Custo do operador
         """
 
         return max(math.dist(estado.posicao, estado_suc.posicao), 1)

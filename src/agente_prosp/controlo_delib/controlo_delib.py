@@ -1,6 +1,7 @@
 from agente.controlo import Controlo
 from .mec_delib import MecDelib
 from .modelo.modelo_mundo import ModeloMundo
+import sae
 
 class ControloDelib(Controlo):
     """
@@ -40,7 +41,11 @@ class ControloDelib(Controlo):
 
     def processar(self, percepcao):
         """
-        Processa a perceção e retorna uma ação
+        Realiza o processo de tomada de decisão e ação.
+
+        Atualiza o modelo do mundo, verifica se é necessário
+        reconsiderar e se for o caso, delibera e planeia.
+        Finalmente executa a ação e retorna-a. 
 
         Parâmetros
         ----------
@@ -50,10 +55,19 @@ class ControloDelib(Controlo):
         Retorna
         -------
         accao : Accao
-            Ação do agente
+            Ação executada pelo agente
         """
-    
-    def assimilar(self, percepcao):
+
+        self.__assimilar(percepcao)
+
+        if self.__reconsiderar():
+            self.__deliberar()
+            self.__planear()
+        
+        accao = self.__executar()
+        return accao
+
+    def __assimilar(self, percepcao):
         """
         Método que atualiza o modelo do mundo passando a perceção
         do ambiente.
@@ -86,15 +100,51 @@ class ControloDelib(Controlo):
     
     def __planear(self):
         """
-        Método que realiza o processo de planeamento.
+        Atualiza o valor do atributo self.__plano caso existam objetivos.
         """
-    
+        if self.__objectivos:
+            self.__plano = self.__planeador.planear(self.__modelo_mundo, self.__objectivos)
+        else:
+            self.__plano = None
+
+
     def __executar(self):
         """
-        Executa.
+        Obtém o estado atual do agente sobre o modelo do mundo,
+        obtém o operador sobre o plano de procura e retorna a 
+        ação associada ao operador.
+
+        Caso o operador não exista, o plano está dessincronizado
+        e, por isso, altera-se o seu valor para None para que volte
+        a ser atualizado.
+
+        Retorna
+        -------
+        : Accao
+            Ação do agente
         """
+        self.__mostrar()
+        
+        if self.__plano:
+            estado = self.__modelo_mundo.obter_estado()
+            operador = self.__plano.obter_accao(estado)
+
+            if operador:
+                return operador.accao
+            
+            self.__plano = None
     
     def __mostrar(self):
         """
-        Mostra.
+        Limpa a vista da biblioteca SAE, mostra o modelo do mundo,
+        se o plano existir mostra-o e marca as posições na janela 
+        da vista nas posições dos objetivos existentes.
         """
+        sae.vista.limpar()
+        self.__modelo_mundo.mostrar(sae.vista)
+        if self.__plano:
+            self.__plano.mostrar(sae.vista)
+        
+        if self.__objectivos:
+            for objectivo in self.__objectivos:
+                sae.vista.marcar_posicao(objectivo.posicao)

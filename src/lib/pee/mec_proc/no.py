@@ -42,11 +42,7 @@ class No:
         self.__antecessor = antecessor
         self.__custo = custo
         self.__prioridade = 0
-        
-        if antecessor:
-            self.__profundidade = antecessor.profundidade + 1
-        else:
-            self.__profundidade = 0
+        self.__profundidade = antecessor.profundidade + 1 if antecessor else 0
     
     def __lt__(self, no):
         """

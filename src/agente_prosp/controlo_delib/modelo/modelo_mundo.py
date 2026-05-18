@@ -3,10 +3,12 @@ from sae.ambiente.direccao import Direccao
 import math
 from .estado_agente import EstadoAgente
 from sae.ambiente.elemento import Elemento
+from plan.modelo.modelo_plan import ModeloPlan
 
-class ModeloMundo:
+class ModeloMundo(ModeloPlan):
     """
     Classe que representa o modelo do mundo.
+    Implementa a interface do modelo de planeamento.
     O modelo do mundo é a representação interna que o agente
     mantém sobre o ambiente onde atua.
     Permite reagir ao presente e antecipar estados futuros.
